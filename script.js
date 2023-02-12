@@ -115,7 +115,6 @@ function startQuiz() {
 //countdown function
 function startTimer() {
     let timeLeft = 120; // time in seconds
-    const timerDisplay = document.getElementById("timerbox");
     const countdown = setInterval(function() {
         timeLeft--;
         let minutes = Math.floor(timeLeft / 60);
@@ -126,7 +125,7 @@ function startTimer() {
         if (seconds < 10) {
             seconds = "0" + seconds;
         }
-        timerDisplay.innerText = minutes + ":" + seconds;
+        questionTime.innerText = minutes + ":" + seconds;
         if (timeLeft <= 0 || currentQuestion >= questions.length) {
             clearInterval(countdown);
         }
@@ -152,6 +151,13 @@ function displayQuestions () {
 function answerChosen(e) {
      const selectedButton = e.target;
      const correct = selectedButton.innerText === questions[currentQuestion].answers.find(answer => answer.correct).text;
+
+     if (!correct) {
+        timeLeft -= 15;
+    }
+
+
+
 
     //Tracks which question the quiz is on
      currentQuestion++;
