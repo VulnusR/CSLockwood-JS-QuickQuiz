@@ -2,12 +2,16 @@ const startButton = document.getElementById("startbtn");
 const qButton = document.querySelectorAll(".questionbtn");
 const questionContainer = document.getElementById("quizcontainer");
 const question = document.getElementById("questionbox");
-const questionTime =document.getElementById("timerbox")
+const questionTime =document.getElementById("timerbox");
+const initalsInput = document.getElementById("initalsection")
+const initalsLabel = document.getElementById("initalstxt")
 
 
 
 let currentQuestion = 0;
 
+let timeLeft;
+let countdown;
 
 
 
@@ -114,7 +118,7 @@ function startQuiz() {
 
 //countdown function
 function startTimer() {
-    let timeLeft = 120; // time in seconds
+    timeLeft = 120; // time in seconds
     const countdown = setInterval(function() {
         timeLeft--;
         let minutes = Math.floor(timeLeft / 60);
@@ -125,18 +129,16 @@ function startTimer() {
         if (seconds < 10) {
             seconds = "0" + seconds;
         }
-        questionTime.innerText = minutes + ":" + seconds;
+
+        questionTime.innerText = minutes + " :" + seconds;
         if (timeLeft <= 0 || currentQuestion >= questions.length) {
             clearInterval(countdown);
+            resultsSection(timeLeft)
         }
-    }, 1000) //time interval in miliseconds
-    
-     // add code here to handle the end of the timer
-
-
-
-     
+    }, 1000) //time interval in miliseconds   
 }
+
+
 
 //this function should display the questions/answers
 function displayQuestions () {
@@ -148,24 +150,37 @@ function displayQuestions () {
 }
 
 //This function registers an answer and takes the user to the next question
-function answerChosen(e) {
-     const selectedButton = e.target;
-     const correct = selectedButton.innerText === questions[currentQuestion].answers.find(answer => answer.correct).text;
 
-     if (!correct) {
+
+function answerChosen(e) {
+    
+    const selectedButton = e.target;
+    const correct = selectedButton.innerText === questions[currentQuestion].answers.find(answer => answer.correct).text;
+
+    if (!correct) {
         timeLeft -= 15;
+        questionTime.innerText = "Time Remaining: " + timeLeft;
     }
 
+    currentQuestion++;
 
-
-
-    //Tracks which question the quiz is on
-     currentQuestion++;
-
-     //cycles through to the next question if there is one.
-  if (currentQuestion < questions.length) {
-     displayQuestions();
-  }
+    if (currentQuestion < questions.length) {
+        displayQuestions();
+    } else {
+        resultsSection(timeLeft);
+    }
 }
 
+function resultsSection(timeLeft) {
+   for (let i = 0; i < qButton.length; i++) {
+       qButton[i].style.display = "none";
+   }
+   question.innerText = "Done!";
+   questionTime.innerText = "Time Remaining: " + (timeLeft);
 
+    // show the initals input and label
+    initalsInput.style.display = "inline-block";
+    initalsLabel.style.display = "inline-block";
+
+    clearInterval(countdown);
+}
