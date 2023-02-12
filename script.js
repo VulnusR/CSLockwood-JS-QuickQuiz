@@ -5,29 +5,87 @@ const question = document.getElementById("questionbox");
 
 let currentQuestion = 0;
 
-
 //array for questions
 const questions = [
    {
     question: "What is JavaScript used for in web development?",
     answers: [ {text: "Creating dynamic and interactive websites", correct: true },
-             {text: "Designing the layout and style of a website", correct: false },
-             {text: "Implementing server-side logic", correct: false },
-             {text: "Storing data on a website", correct: false } ]
-   },
+        {text: "Designing the layout and style of a website", correct: false },
+        {text: "Implementing server-side logic", correct: false },
+        {text: "Storing data on a website", correct: false } ]
+    },
+
    {
     question: "What is a variable in JavaScript?",
     answers: [ {text: "A set of instructions for a specific task", correct: false },
-             {text: "A type of loop in JavaScript", correct: false },
-             {text: "A value that can be changed", correct: false },
-             {text: "A named container that holds data", correct: true }, ]
+        {text: "A type of loop in JavaScript", correct: false },
+        {text: "A value that can be changed", correct: false },
+        {text: "A named container that holds data", correct: true }, ]
+    }, 
 
+   {
+    question: "How do you declare a variable in JavaScript?",
+    answers: [ {text: "function variableName;", correct: false },
+        {text: "const variableName;", correct: false },
+        {text: "var variableName;", correct: true },
+        {text: "let variableName;", correct: false }, ]
+    },
 
+    {
+    question: "What is the difference between let and var in JavaScript?",
+    answers: [ {text: "var is only used for constants, while let can be changed", correct: false },
+        {text: "let is only used for constants, while var can be changed", correct: false },
+        {text: "A value that can be changed", correct: false },
+        {text: "let is block-scoped, while var is function-scoped", correct: true }, ]
+    },
 
+    {
+     question: "What is an array in JavaScript?",
+     answers: [ {text: "A function used to perform a specific task", correct: false },
+        {text: "A data structure that holds a collection of values", correct: true},
+        {text: "A type of loop in JavaScript", correct: false },
+        {text: "A conditional statement in JavaScript", correct: false }, ]
+    },
 
-
-   }
-
+    {
+    question: "How do you add a property to an object in JavaScript?",
+    answers: [ {text: "objectName{property} = value;", correct: true },
+        {text: "objectName.property = value;", correct: true },
+        {text: "objectName[property] = value;", correct: true },
+        {text: "objectName(property) = value;", correct: false } ]
+    },
+    
+    {
+    question: "How do you access an element in an array in JavaScript?",
+    answers: [ {text: "By its index number", correct: true },
+        {text: "By its name", correct: false },
+        {text: "By its type", correct: false },
+        {text: "By its value", correct: false }, ]
+    }, 
+        
+    {
+    question: "What is an object in JavaScript?",
+    answers: [ {text: "A set of instructions for a specific task", correct: false },
+        {text: "A type of loop in JavaScript", correct: false },
+        {text: "A collection of key-value pairs", correct: true },
+        {text: "A data structure that holds a collection of values", correct: true }, ]
+    },
+    
+   {
+    question: "What is a function in JavaScript??",
+    answers: [ {text: "A conditional statement in JavaScript", correct: false },
+        {text: "A set of instructions for a specific task", correct: true },
+        {text: "A data structure that holds a collection of values", correct: false },
+        {text: "A type of loop in JavaScript", correct: false }, ]
+    },
+    
+   {
+     question: "How do you call a function in JavaScript?",
+     answers: [ {text: "run functionName();", correct: false },
+        {text: "functionName();", correct: true },
+        {text: "functionName;", correct: false },
+        {text: "call functionName();", correct: false }, ]
+        }
 ]
 
 
