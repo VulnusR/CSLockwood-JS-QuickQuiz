@@ -3,10 +3,11 @@ const qButton = document.querySelectorAll(".questionbtn");
 const questionContainer = document.getElementById("quizcontainer");
 const question = document.getElementById("questionbox");
 const questionTime =document.getElementById("timerbox");
-const initalsInput = document.getElementById("initalssection")
-const initalsLabel = document.getElementById("initalstxt")
-const totalScore = document.getElementById("scorebox")
-const submitButton =document.getElementById("submitButton")
+const initalsInput = document.getElementById("initalssection");
+const initalsLabel = document.getElementById("initalstxt");
+const totalScore = document.getElementById("scorebox");
+const submitButton =document.getElementById("submitButton");
+
 
 
 
