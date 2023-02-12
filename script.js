@@ -3,15 +3,19 @@ const qButton = document.querySelectorAll(".questionbtn");
 const questionContainer = document.getElementById("quizcontainer");
 const question = document.getElementById("questionbox");
 const questionTime =document.getElementById("timerbox");
-const initalsInput = document.getElementById("initalsection")
+const initalsInput = document.getElementById("initalssection")
 const initalsLabel = document.getElementById("initalstxt")
+const totalScore = document.getElementById("scorebox")
+
 
 
 
 let currentQuestion = 0;
+let correctSelection =0;
 
 let timeLeft;
 let countdown;
+
 
 
 
@@ -130,7 +134,7 @@ function startTimer() {
             seconds = "0" + seconds;
         }
 
-        questionTime.innerText = minutes + " :" + seconds;
+        questionTime.innerText = "Time:\n" + minutes + " :" + seconds;
         if (timeLeft <= 0 || currentQuestion >= questions.length) {
             clearInterval(countdown);
             resultsSection(timeLeft)
@@ -159,8 +163,14 @@ function answerChosen(e) {
 
     if (!correct) {
         timeLeft -= 15;
-        questionTime.innerText = "Time Remaining: " + timeLeft;
+        questionTime.innerText = "Time\n " + timeLeft;
     }
+    else {
+       correctSelection++
+    }
+
+    totalScore.innerText = "Score:\n" + correctSelection + "/" + questions.length;
+
 
     currentQuestion++;
 
@@ -172,15 +182,20 @@ function answerChosen(e) {
 }
 
 function resultsSection(timeLeft) {
+
+    
    for (let i = 0; i < qButton.length; i++) {
        qButton[i].style.display = "none";
    }
-   question.innerText = "Done!";
-   questionTime.innerText = "Time Remaining: " + (timeLeft);
 
-    // show the initals input and label
+   totalScore.innerText = "Score:\n" + correctSelection + "/10"
+
+
+   question.innerText = "How did you do?";
+   questionTime.innerText = "Time Remaining:\n " + (timeLeft);
+
+    // show the initals input and label  
     initalsInput.style.display = "inline-block";
-    initalsLabel.style.display = "inline-block";
-
-    clearInterval(countdown);
+   initalsLabel.style.display = "inline-block";
 }
+
