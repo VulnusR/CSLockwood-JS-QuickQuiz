@@ -118,12 +118,25 @@ function startTimer() {
     const timerDisplay = document.getElementById("timerbox");
     const countdown = setInterval(function() {
         timeLeft--;
-        timerDisplay.innerText = timeLeft;
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        timerDisplay.innerText = minutes + ":" + seconds;
         if (timeLeft <= 0 || currentQuestion >= questions.length) {
             clearInterval(countdown);
-            // add code here to handle the end of the timer
         }
-    }, 1000);
+    }, 1000) //time interval in miliseconds
+    
+     // add code here to handle the end of the timer
+
+
+
+     
 }
 
 //this function should display the questions/answers
