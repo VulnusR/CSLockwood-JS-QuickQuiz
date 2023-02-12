@@ -51,6 +51,7 @@ body {
    font-size: 1em;
 }
 
+
 #questionbox {    
     border: black;
     border-style: dashed;
@@ -79,6 +80,7 @@ body {
     border: black;
     border-style: dotted;
     min-height: 475px;
+    
     margin: 5%;
     margin-top: 0%;
     padding: 2%;
@@ -108,5 +110,29 @@ body {
 }
 
 
+.questionbtn {
+    display: none;
+    min-width: 600px;
+    min-height: 120px;
+    border: 1px solid;
+    border-radius: 40%;
+    border-width: 3px;
+    margin: 5px;
 
+    color: white;
+    background-color: #011341;
+    border-color: black;
+    font-weight: 700;
+    font-size: large;
+    letter-spacing: 2px;
+    box-shadow: 10px 10px 5px 0px #000000a6;
+}
+
+.questionbtn:hover {
+    background-color: #1c3881;
+    color: #F59008;
+    cursor: pointer;
+    box-shadow: 10px 10px 5px 0px #00000000;
+
+}
  
