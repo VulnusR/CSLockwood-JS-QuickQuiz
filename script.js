@@ -3,24 +3,24 @@ const qButton = document.querySelectorAll(".questionbtn");
 const questionContainer = document.getElementById("quizcontainer");
 const question = document.getElementById("questionbox");
 
-
+let currentQuestion = 0;
 
 
 //array for questions
 const questions = [
    {
     question: "What is JavaScript used for in web development?",
-    answers: [ {text: "A) Creating dynamic and interactive websites", correct: true },
-             {text: "B) Designing the layout and style of a website", correct: false },
-             {text: "C) Implementing server-side logic", correct: false },
-             {text: "D) Storing data on a website", correct: false } ]
+    answers: [ {text: "Creating dynamic and interactive websites", correct: true },
+             {text: "Designing the layout and style of a website", correct: false },
+             {text: "Implementing server-side logic", correct: false },
+             {text: "Storing data on a website", correct: false } ]
    },
    {
     question: "What is a variable in JavaScript?",
-    answers: [ {text: "B) A set of instructions for a specific task", correct: false },
-             {text: "C) A type of loop in JavaScript", correct: false },
-             {text: "D) A value that can be changed", correct: false },
-             {text: "A) A named container that holds data", correct: true }, ]
+    answers: [ {text: "A set of instructions for a specific task", correct: false },
+             {text: "A type of loop in JavaScript", correct: false },
+             {text: "A value that can be changed", correct: false },
+             {text: "A named container that holds data", correct: true }, ]
 
 
 
@@ -49,17 +49,33 @@ function startQuiz() {
     startButton.style.display = "none";
     for (let i = 0; i < qButton.length; i++) {
         qButton[i].style.display = "inline-block";
-        displayQuestions();
-    }
+        }
+        
+    displayQuestions();
+
 }
 
-
+//this function should display the questions/answers
 function displayQuestions () {
-    console.log(displayquestions)
     question.innerText = questions[currentQuestion].question;
     qButton.forEach((button, index) => {
         button.innerText = questions[currentQuestion].answers[index].text;
-        button.addEventListener("click", selectAnswer);
+        button.addEventListener("click", answerChosen);
        });
 }
+
+//This function registers an answer and takes the user to the next question
+function answerChosen(e) {
+     const selectedButton = e.target;
+     const correct = selectedButton.innerText === questions[currentQuestion].answers.find(answer => answer.correct).text;
+
+    //Tracks which question the quiz is on
+     currentQuestion++;
+
+     //cycles through to the next question if there is one.
+  if (currentQuestion < questions.length) {
+     displayQuestions();
+  }
+}
+
 
