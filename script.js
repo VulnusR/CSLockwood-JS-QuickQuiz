@@ -2,8 +2,15 @@ const startButton = document.getElementById("startbtn");
 const qButton = document.querySelectorAll(".questionbtn");
 const questionContainer = document.getElementById("quizcontainer");
 const question = document.getElementById("questionbox");
+const questionTime =document.getElementById("timerbox")
+
+
 
 let currentQuestion = 0;
+
+
+
+
 
 //array for questions
 const questions = [
@@ -89,16 +96,6 @@ const questions = [
 ]
 
 
-
-
-
-
-
-
-
-
-
-
 //starts the quiz
 startButton.addEventListener("click", startQuiz)
 
@@ -110,7 +107,23 @@ function startQuiz() {
         }
         
     displayQuestions();
+    startTimer();
 
+}
+
+
+//countdown function
+function startTimer() {
+    let timeLeft = 120; // time in seconds
+    const timerDisplay = document.getElementById("timerbox");
+    const countdown = setInterval(function() {
+        timeLeft--;
+        timerDisplay.innerText = timeLeft;
+        if (timeLeft <= 0 || currentQuestion >= questions.length) {
+            clearInterval(countdown);
+            // add code here to handle the end of the timer
+        }
+    }, 1000);
 }
 
 //this function should display the questions/answers
