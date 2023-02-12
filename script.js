@@ -6,6 +6,7 @@ const questionTime =document.getElementById("timerbox");
 const initalsInput = document.getElementById("initalssection")
 const initalsLabel = document.getElementById("initalstxt")
 const totalScore = document.getElementById("scorebox")
+const submitButton =document.getElementById("submitButton")
 
 
 
@@ -161,6 +162,8 @@ function answerChosen(e) {
     const selectedButton = e.target;
     const correct = selectedButton.innerText === questions[currentQuestion].answers.find(answer => answer.correct).text;
 
+
+    //This portion of the function makes a correct answer get a point, and have an incorrect answer deduct time.
     if (!correct) {
         timeLeft -= 15;
         questionTime.innerText = "Time\n " + timeLeft;
@@ -169,9 +172,11 @@ function answerChosen(e) {
        correctSelection++
     }
 
+
+    //tracks total score
     totalScore.innerText = "Score:\n" + correctSelection + "/" + questions.length;
 
-
+    //tracks question number displaying the next question if there is one
     currentQuestion++;
 
     if (currentQuestion < questions.length) {
@@ -181,9 +186,10 @@ function answerChosen(e) {
     }
 }
 
+//function to apply end of quiz effects
 function resultsSection(timeLeft) {
 
-    
+    //removes question btns
    for (let i = 0; i < qButton.length; i++) {
        qButton[i].style.display = "none";
    }
@@ -194,8 +200,9 @@ function resultsSection(timeLeft) {
    question.innerText = "How did you do?";
    questionTime.innerText = "Time Remaining:\n " + (timeLeft);
 
-    // show the initals input and label  
-    initalsInput.style.display = "inline-block";
+    // shows hidden elements in the DOM  
+   initalsInput.style.display = "inline-block";
    initalsLabel.style.display = "inline-block";
+   submitButton.style.display = "inline-block";
 }
 
