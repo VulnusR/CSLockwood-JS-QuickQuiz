@@ -30,11 +30,45 @@ body {
     background-color: white;
 }
 
-body h2 {    
-    color: black;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    margin-top: 0%;
+#headerbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 2%;
+    margin-bottom: 10px;
+}
+
+#scorebox{
+   border: black;
+   border-style: dashed;
+   border-width: 2px;
+
+   height: 50px;
+   width: 150px;
+   margin: 0%;
+
+   font-size: 1em;
+}
+
+#questionbox {    
+    border: black;
+    border-style: dashed;
+    border-width: 2px;
+    padding: 3px;
+    max-width: 1000px;
+    max-height: 65px;
+    font-size: 1.65em;
+}
+
+#timerbox {
+    border: black;
+    border-style: dashed;
+    border-width: 2px;
+    height: 50px;
+    width: 150px;
+    margin: 0%;
+    font-size: 1em;
 }
 
 .quizcontainer {
@@ -52,12 +86,27 @@ body h2 {
 
 
 #startbtn {
-    
+    min-width: 600px;
+    min-height: 120px;
     border: 1px solid;
-    border-radius: 20%;
-    border-width: 1px;
-    
-
+    border-radius: 40%;
+    border-width: 3px;
+    color: rgb(163, 159, 159);
+    background-color: #011341;
+    border-color: black;
+    font-weight: 700;
+    font-size: xx-large;
+    letter-spacing: 2px;
+    box-shadow: 10px 10px 5px 0px #000000a6;
 }
+
+#startbtn:hover {
+    background-color: #1c3881;
+    color: #F59008;
+    cursor: pointer;
+    box-shadow: 10px 10px 5px 0px #00000000;
+}
+
+
 
  
