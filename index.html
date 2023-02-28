@@ -1,58 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="/style.css"> 
-</head>
+  <head>
+  <link rel="stylesheet" href="./assets/css/style.css"> 
+  </head>
 
 
+    <body>
+        <header>
+            <h1>JS Quickquiz</h1>
+        </header>
 
-<body>
-    <header>
-        <h1>JS Quickquiz</h1>
-    </header>
+        <main id="maincontainer">
+            <div id="headerbox">
+                <div id="scorebox">Score:<br></div>
+                <div id="questionbox">Test your knowledge of Javascript fundementals!</div>
+                <div id="timerbox">Time:<br> 00:00</div>
+            </div>
 
-    <main id="maincontainer">
-        <div id="headerbox">
-            <div id="scorebox">Score:<br></div>
-            <div id="questionbox">Test your knowledge of Javascript fundementals!</div>
-            <div id="timerbox">Time:<br> 00:00</div>
-        </div>
-        <div class="quizcontainer">
-            <button id="startbtn">Start!</button>
-            <button class="questionbtn"></button>
-            <button class="questionbtn"></button>
-            <button class="questionbtn"></button>
-            <button class="questionbtn"></button>
+            <div class="quizcontainer">
+                <button id="startbtn">Start!</button>
+                <button class="questionbtn"></button>
+                <button class="questionbtn"></button>
+                <button class="questionbtn"></button>
+                <button class="questionbtn"></button>
             
-            <p id="initalstxt">Enter your initals!</p>
-            <input type="text" id="initalssection" name="initalssection" required>
-            <button id="submitButton">Submit</button>
-             
-    
-        </div>
-    </main>
-    <script src="storage.js"></script>
-    <script src="script.js"></script>
-</body>
-
-<footer>
-
-
-
-
-
-
-
-    
-</footer>
-
-
-
-
-
-
-
-
-
-
+                <p id="initalstxt">Enter your initals!</p>
+                <input type="text" id="initalssection" name="initalssection" required>
+                <button id="submitButton">Submit</button>
+            </div>
+        </main>
+        <script src="./assets/js/storage.js"></script>
+        <script src="./assets/js/script.js"></script>
+    </body>
 </html>
