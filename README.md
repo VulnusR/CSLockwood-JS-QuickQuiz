@@ -26,7 +26,7 @@ WHEN the game is over<br>
 THEN I can save my initials and score<br>
 
 ### Links
-Deployed Application: 
+Deployed Application: https://vulnusr.github.io/CSLockwood-M4-JS-QuickQuiz/
 
 
 ### Screenshot
